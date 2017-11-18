@@ -126,7 +126,7 @@ void display_number(uint16_t num)
         state = 1;
         break;
     case 1:
-        if(tens == 0)
+        if((hundreds == 0) && (tens == 0))
         {
             //4 means 'no display'
             digit3_disp_num(4, 0);

@@ -1,10 +1,3 @@
-/*
- * remote_receive.h
- *
- *  Created on: 2017. 11. 18.
- *      Author: whdlg
- */
-
 #ifndef REMOTE_RECEIVE_H_
 #define REMOTE_RECEIVE_H_
 

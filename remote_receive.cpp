@@ -1,16 +1,9 @@
-/*
- * remote_receive.cpp
- *
- *  Created on: 2017. 11. 18.
- *      Author: whdlg
- */
-
 #include "remote_receive.h"
 #include <IRremote.h>
 
-int RECV_PIN = 12;   //IR receiver OUTPUT terminated at pin 12
-IRrecv irrecv(RECV_PIN);   // Define IRrecv object to receive infrared signals
-decode_results  results;   //Decoding results on decode_results constructed object results in
+static int RECV_PIN = 12;   //IR receiver OUTPUT terminated at pin 12
+static IRrecv irrecv(RECV_PIN);   // Define IRrecv object to receive infrared signals
+static decode_results  results;   //Decoding results on decode_results constructed object results in
 
 static uint32_t input_val = 0;
 
