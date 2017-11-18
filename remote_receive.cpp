@@ -1,5 +1,5 @@
 #include "remote_receive.h"
-#include <IRremote.h>
+#include "IRremote.h"
 
 static int RECV_PIN = 12;   //IR receiver OUTPUT terminated at pin 12
 static IRrecv irrecv(RECV_PIN);   // Define IRrecv object to receive infrared signals
