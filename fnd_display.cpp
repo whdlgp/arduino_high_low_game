@@ -60,7 +60,7 @@ static uint16_t disp_val;
 void display_setup()
 {
     //FND SETUP
-    for (int i = 0; i < 12; i++)
+    for (int i = 0; i < 10; i++)
     {
         pinMode(i + 2, OUTPUT);
     }
