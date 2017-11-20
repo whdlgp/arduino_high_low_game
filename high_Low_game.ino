@@ -29,6 +29,7 @@ void loop()
     int user_confirmed = 0;
 
     static uint8_t game_status = 0;
+    static uint8_t game_count = 0;
     switch(game_status)
     {
     case MAKE_RANDOM: //make random value 0~100
@@ -46,13 +47,22 @@ void loop()
         }
         else if(user_confirmed == CONFIRMED)
         {
+            game_count++;
             //user confirmed input. let's go next step
             game_status = HIGH_OR_LOW;
         }
         break;
 
     case HIGH_OR_LOW: //compare user input and random value
-        if(user_input > random_val)
+        //if game player input matched or can't matched until count 10, display random value
+        if((user_input == random_val) || (game_count > 9))
+        {
+            // random value and user command matched, start again
+            game_count = 0;
+            display_set_val(DISP_NUM, random_val);
+            game_status = MAKE_RANDOM;
+        }
+        else if(user_input > random_val)
         {
             display_set_val(DISP_RESULT, HIGH);
             game_status = RECEIVE_USER_INPUT;
@@ -62,11 +72,7 @@ void loop()
             display_set_val(DISP_RESULT, LOW);
             game_status = RECEIVE_USER_INPUT;
         }
-        else
-        {// random value and user command matched, start again
-            display_set_val(DISP_NUM, random_val);
-            game_status = MAKE_RANDOM;
-        }
+
         user_input_init();
         break;
     }
